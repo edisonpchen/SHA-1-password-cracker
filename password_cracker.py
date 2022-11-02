@@ -12,3 +12,7 @@ def crack_sha1_hash(hash, use_salts = False):
             if digest == hash:
                 return password
         return 'PASSWORD NOT IN DATABASE'
+    else:
+        salt_file = open('known-salts.txt', 'r')
+        salt_list = salt_file.readlines()
+        salt_list = [s.replace('\n', '') for s in salt_list]
